@@ -24,9 +24,9 @@ function EmpList() {
   const [employees, setEmployees] = useState(getDatafromLS());
 
   // delete employee
-  const deleteEmployee = (name) => {
+  const deleteEmployee = (id) => {
     const filteredEmployees = employees.filter((element, index) => {
-      return element.name !== name;
+      return element.id !== id;
     });
     setEmployees(filteredEmployees);
   };

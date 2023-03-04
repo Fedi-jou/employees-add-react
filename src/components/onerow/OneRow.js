@@ -13,7 +13,7 @@ export const OneRow = ({ employees, deleteEmployee }) => {
       <Td>{employee.qualif}</Td>
       <Td>{employee.niveau}</Td>
       <Td>{employee.valid}</Td>
-      <Td className="delete-btn" onClick={() => deleteEmployee(employee.name)}>
+      <Td className="delete-btn" onClick={() => deleteEmployee(employee.id)}>
         <Icon icon={trash} />
       </Td>
     </Tr>

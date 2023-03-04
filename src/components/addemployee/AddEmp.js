@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useId } from "react";
+import { v4 as uuid } from "uuid";
 import {
   Button,
   Flex,
@@ -33,12 +34,14 @@ export const AddEmp = () => {
   const [qualif, setQualif] = useState("");
   const [niveau, setNiveau] = useState("");
   const [valid, setValid] = useState("");
-
+  const [id, setId] = useState(null);
   // form submit event
-  const handleAddBookSubmit = (e) => {
+
+  const HandleAddemployeeSubmit = (e) => {
     e.preventDefault();
     // creating an object
     let employee = {
+      id: uuid(),
       name,
       surname,
       email,
@@ -48,6 +51,7 @@ export const AddEmp = () => {
       valid,
     };
     setEmployees([...employees, employee]);
+    setId(null);
     setName("");
     setSurname("");
     setEmail("");
@@ -92,7 +96,7 @@ export const AddEmp = () => {
             <Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
               Ajouter un employé
             </Heading>
-            <form onSubmit={handleAddBookSubmit}>
+            <form onSubmit={HandleAddemployeeSubmit}>
               <FormControl id="userName" isRequired>
                 <FormLabel>Nom</FormLabel>
                 <Input
@@ -172,7 +176,7 @@ export const AddEmp = () => {
                   _hover={{
                     bg: "blue.500",
                   }}
-                  onSubmit={handleAddBookSubmit}
+                  onSubmit={HandleAddemployeeSubmit}
                   type="submit"
                 >
                   Ajouter
